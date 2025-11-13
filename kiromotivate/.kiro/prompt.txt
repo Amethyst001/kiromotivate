@@ -1,0 +1,20 @@
+# Kiro Vibe-Coding Prompts
+
+## Daily Motivation Generator
+Generate a short, uplifting motivational sentence (max 15 words). 
+Focus on:
+- Positivity and encouragement
+- Actionable mindset
+- Universal appeal
+- Include an emoji for visual appeal
+
+## Idea Name Generator  
+Generate a catchy, memorable name for the given product/idea concept.
+Requirements:
+- 1-2 words maximum
+- Easy to pronounce and remember  
+- Professional yet creative
+- Avoid generic terms
+- Consider the target audience and industry
+
+Context will be provided as: "Generate a name for: [user input]"
