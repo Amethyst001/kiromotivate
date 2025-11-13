@@ -198,7 +198,6 @@ class KiroVibeDemo {
         const suffix = suffixes[Math.floor(Math.random() * suffixes.length)];
         return `${prefix}${suffix}`;
     }
-    }
 
     setLoading(button, output, message) {
         button.disabled = true;
