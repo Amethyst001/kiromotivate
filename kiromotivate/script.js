@@ -96,16 +96,108 @@ class KiroVibeDemo {
             return motivations[Math.floor(Math.random() * motivations.length)];
         }
         
-        if (type === 'idea' || type === 'random') {
-            // Generate spooky names - could use context for smarter generation in real implementation
-            const prefixes = ['Shadow', 'Phantom', 'Mystic', 'Dark', 'Spectral', 'Void', 'Hex', 'Raven', 'Ghost', 'Crimson', 'Lunar', 'Obsidian'];
-            const suffixes = ['Forge', 'Realm', 'Crypt', 'Nexus', 'Spell', 'Wraith', 'Veil', 'Shrine', 'Labs', 'Works', 'Studio', 'Core'];
-            
-            const prefix = prefixes[Math.floor(Math.random() * prefixes.length)];
-            const suffix = suffixes[Math.floor(Math.random() * suffixes.length)];
-            
-            return `${prefix}${suffix}`;
+        if (type === 'idea') {
+            // Context-aware name generation based on user input
+            return this.generateContextualName(context);
         }
+        
+        if (type === 'random') {
+            // Halloween-themed random names
+            return this.generateHalloweenName();
+        }
+    }
+
+    generateContextualName(context) {
+        const lowerContext = context.toLowerCase();
+        
+        // Detect context categories and generate appropriate names
+        if (lowerContext.includes('fitness') || lowerContext.includes('health') || lowerContext.includes('workout') || lowerContext.includes('gym')) {
+            const fitnessPrefixes = ['Phantom', 'Shadow', 'Dark', 'Night', 'Blood', 'Iron', 'Steel', 'Raven'];
+            const fitnessSuffixes = ['Fit', 'Gym', 'Flex', 'Power', 'Force', 'Strength', 'Beast', 'Warrior'];
+            return this.combineWords(fitnessPrefixes, fitnessSuffixes);
+        }
+        
+        if (lowerContext.includes('app') || lowerContext.includes('mobile') || lowerContext.includes('software') || lowerContext.includes('tech')) {
+            const techPrefixes = ['Cyber', 'Digital', 'Phantom', 'Ghost', 'Shadow', 'Hex', 'Binary', 'Quantum'];
+            const techSuffixes = ['App', 'Tech', 'Soft', 'Code', 'Byte', 'Net', 'Hub', 'Lab'];
+            return this.combineWords(techPrefixes, techSuffixes);
+        }
+        
+        if (lowerContext.includes('food') || lowerContext.includes('restaurant') || lowerContext.includes('cooking') || lowerContext.includes('recipe')) {
+            const foodPrefixes = ['Midnight', 'Crimson', 'Dark', 'Mystic', 'Spiced', 'Smoky', 'Burnt', 'Cauldron'];
+            const foodSuffixes = ['Kitchen', 'Feast', 'Bite', 'Taste', 'Flavor', 'Spice', 'Brew', 'Dish'];
+            return this.combineWords(foodPrefixes, foodSuffixes);
+        }
+        
+        if (lowerContext.includes('game') || lowerContext.includes('gaming') || lowerContext.includes('play')) {
+            const gamePrefixes = ['Shadow', 'Phantom', 'Dark', 'Neon', 'Pixel', 'Cyber', 'Mystic', 'Rogue'];
+            const gameSuffixes = ['Play', 'Game', 'Quest', 'Arena', 'Realm', 'World', 'Zone', 'Nexus'];
+            return this.combineWords(gamePrefixes, gameSuffixes);
+        }
+        
+        if (lowerContext.includes('music') || lowerContext.includes('sound') || lowerContext.includes('audio')) {
+            const musicPrefixes = ['Echo', 'Phantom', 'Dark', 'Mystic', 'Lunar', 'Spectral', 'Sonic', 'Rhythm'];
+            const musicSuffixes = ['Sound', 'Beat', 'Wave', 'Tune', 'Echo', 'Vibe', 'Mix', 'Flow'];
+            return this.combineWords(musicPrefixes, musicSuffixes);
+        }
+        
+        if (lowerContext.includes('social') || lowerContext.includes('chat') || lowerContext.includes('connect')) {
+            const socialPrefixes = ['Ghost', 'Phantom', 'Shadow', 'Mystic', 'Lunar', 'Neon', 'Digital', 'Cyber'];
+            const socialSuffixes = ['Link', 'Connect', 'Chat', 'Meet', 'Talk', 'Share', 'Circle', 'Hub'];
+            return this.combineWords(socialPrefixes, socialSuffixes);
+        }
+        
+        // Default spooky business names for unrecognized contexts
+        const defaultPrefixes = ['Shadow', 'Phantom', 'Mystic', 'Dark', 'Spectral', 'Void', 'Hex', 'Raven'];
+        const defaultSuffixes = ['Works', 'Labs', 'Studio', 'Corp', 'Solutions', 'Systems', 'Ventures', 'Enterprises'];
+        return this.combineWords(defaultPrefixes, defaultSuffixes);
+    }
+
+    generateHalloweenName() {
+        const halloweenPatterns = [
+            'spooky_compound',
+            'monster_themed',
+            'gothic_single',
+            'witchy_brew'
+        ];
+        
+        const pattern = halloweenPatterns[Math.floor(Math.random() * halloweenPatterns.length)];
+        
+        if (pattern === 'spooky_compound') {
+            const spookyPrefixes = ['Phantom', 'Shadow', 'Ghost', 'Wraith', 'Specter', 'Banshee', 'Vampire', 'Witch', 'Warlock', 'Demon'];
+            const spookySuffixes = ['Crypt', 'Tomb', 'Grave', 'Haunt', 'Curse', 'Spell', 'Hex', 'Potion', 'Cauldron', 'Grimoire'];
+            return this.combineWords(spookyPrefixes, spookySuffixes);
+        }
+        
+        if (pattern === 'monster_themed') {
+            const monsters = ['Dracula', 'Frankenstein', 'Wolfman', 'Mummy', 'Zombie', 'Skeleton', 'Reaper', 'Ghoul', 'Poltergeist', 'Necromancer'];
+            const suffixes = ['Labs', 'Works', 'Studios', 'Enterprises', 'Industries', 'Corporation', 'Solutions', 'Systems'];
+            const monster = monsters[Math.floor(Math.random() * monsters.length)];
+            const suffix = suffixes[Math.floor(Math.random() * suffixes.length)];
+            return `${monster}${suffix}`;
+        }
+        
+        if (pattern === 'gothic_single') {
+            const gothicNames = [
+                'Ravencroft', 'Shadowmere', 'Nightshade', 'Bloodmoon', 'Darkwood', 'Grimhaven', 
+                'Thornfield', 'Blackwater', 'Moonfall', 'Duskwood', 'Mistral', 'Obsidian',
+                'Crimsonvale', 'Shadowbane', 'Nightwhisper', 'Darkspire', 'Ghostwind', 'Voidstar'
+            ];
+            return gothicNames[Math.floor(Math.random() * gothicNames.length)];
+        }
+        
+        if (pattern === 'witchy_brew') {
+            const witchyPrefixes = ['Cauldron', 'Potion', 'Spell', 'Brew', 'Charm', 'Enchant', 'Magic', 'Mystic'];
+            const witchySuffixes = ['Craft', 'Works', 'Brew', 'Mix', 'Blend', 'Concoct', 'Forge', 'Create'];
+            return this.combineWords(witchyPrefixes, witchySuffixes);
+        }
+    }
+
+    combineWords(prefixes, suffixes) {
+        const prefix = prefixes[Math.floor(Math.random() * prefixes.length)];
+        const suffix = suffixes[Math.floor(Math.random() * suffixes.length)];
+        return `${prefix}${suffix}`;
+    }
     }
 
     setLoading(button, output, message) {
