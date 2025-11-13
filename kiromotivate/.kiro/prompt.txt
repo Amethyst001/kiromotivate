@@ -1,20 +1,27 @@
-# Kiro Vibe-Coding Prompts
+Project: KiroMotivate 🎃
+Purpose: Demonstrate Kiro vibe-coding for generating short textual outputs with a Halloween theme.
 
-## Daily Motivation Generator
-Generate a short, uplifting motivational sentence (max 15 words). 
-Focus on:
-- Positivity and encouragement
-- Actionable mindset
-- Universal appeal
-- Include an emoji for visual appeal
+Features Implemented:
+1. Daily Motivation Generator - generates short, uplifting sentences.
+2. Idea Name Generator - generates spooky product/idea names; includes a random name option if input is empty.
+3. Halloween Theme - dark backgrounds, glowing/flickering text, ghostly animations, orange/neon green accents.
+4. Dice Button - instant random name generation.
 
-## Idea Name Generator  
-Generate a catchy, memorable name for the given product/idea concept.
-Requirements:
-- 1-2 words maximum
-- Easy to pronounce and remember  
-- Professional yet creative
-- Avoid generic terms
-- Consider the target audience and industry
+How Kiro Was Used:
 
-Context will be provided as: "Generate a name for: [user input]"
+Vibe Coding:
+- The project was created entirely using Kiro’s chat-based vibe coding.
+- Prompts described the UI, features, and visual style.
+- Kiro generated the HTML, CSS, and JS step by step based on these prompts.
+- Subsequent prompts refined animations, emoji usage, and random name functionality.
+
+Agent Hooks / Steering / MCP:
+- Not used in this project; full functionality achieved through guided prompts and Kiro’s code generation.
+
+Halloween UI:
+- Prompts instructed Kiro to apply a dark, spooky theme with glowing/flickering effects and ghostly animations.
+- Kiro suggested color palette, hover effects, and smooth animations.
+
+Usage Notes:
+- To generate content, Kiro uses the prompts in this file to simulate API responses.
+- Developers can replace simulated responses with live Kiro API calls by connecting the prompt instructions to Kiro’s endpoints.
